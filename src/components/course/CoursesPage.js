@@ -10,10 +10,15 @@ class CoursesPage extends React.Component {
     super(props, context);
 
     this.courseRow = this.courseRow.bind(this);
+    this.redirectToAddCoursePage = this.redirectToAddCoursePage.bind(this);
   }
 
   courseRow(course, index) {
     return <div key={index}>{course.title}</div>;
+  }
+
+  redirectToAddCoursePage() {
+    this.props.history.push('/course');
   }
 
   render() {
@@ -22,6 +27,12 @@ class CoursesPage extends React.Component {
     return (
       <div>
         <h1>Courses</h1>
+        <input
+          type="submit"
+          value="Add Course"
+          className ="btn btn-primary"
+          onClick={this.redirectToAddCoursePage}
+        />
         <CourseList courses={courses} />
       </div>
     );
@@ -30,7 +41,8 @@ class CoursesPage extends React.Component {
 
 CoursesPage.propTypes = {
   courses: Proptypes.array.isRequired,
-  actions: Proptypes.object.isRequired
+  actions: Proptypes.object.isRequired,
+  history: Proptypes.object.isRequired
 };
 
 function mapStateToProps(state) {
