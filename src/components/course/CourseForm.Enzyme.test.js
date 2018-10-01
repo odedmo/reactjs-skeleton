@@ -1,7 +1,6 @@
 import expect from 'expect';
 import React from 'react';
 import Enzyme from 'enzyme';
-import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import CourseForm from './CourseForm';
 
@@ -16,7 +15,7 @@ function setup(saving) {
     onChange: () => {}
   };
 
-  return shallow(<CourseForm {...props} />);
+  return Enzyme.shallow(<CourseForm {...props} />);
 }
 
 describe('CourseForm via Enzyme', () => {
