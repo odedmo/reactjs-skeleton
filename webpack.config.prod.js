@@ -22,20 +22,18 @@ export default {
     new MiniCssExtractPlugin({
       // Options similar to the same options in webpackOptions.output
       // both options are optional
-      filename: 'styles.css'
+      filename: "styles.css"
     })
   ],
   module: {
     rules: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel-loader']},
-      // todo - the next line should be removed, but currently it doesn't work if removed
-      {test: /(\.css)$/, loaders: ['style-loader', 'css-loader']},
       {
-        test: /\.scss$/,
+        test: /\.(sa|sc|c)ss$/,
         use: [
           MiniCssExtractPlugin.loader,
-          "css-loader",
-          "sass-loader"
+          'css-loader',
+          'sass-loader'
         ]
       }
     ]
